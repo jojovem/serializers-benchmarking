@@ -1,0 +1,30 @@
+language: php
+
+sudo: false
+
+matrix:
+  include:
+    - php: 7.2
+  fast_finish: true
+
+before_install:
+  - composer clear-cache
+  - phpenv config-rm xdebug.ini;
+  - phpenv config-add php.ini
+  - echo "extension = apcu.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+
+install:
+  - composer install -a --prefer-source
+
+script:
+  - |
+    # Vendors list
+    php vendor/bin/phpbench vendors
+
+  - |
+    # Performing serialization benchmark
+    php vendor/bin/phpbench run --warmup=1 --report=tsantos --group=serialize --iterations=10
+
+  - |
+    # Performing deserialization benchmark
+    php vendor/bin/phpbench run --warmup=1 --report=tsantos --group=deserialize --iterations=10

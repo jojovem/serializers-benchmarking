@@ -1,15 +1,49 @@
 {
+    "name": "tsantos/serializer-benchmark",
+    "type": "project",
+    "description": "PHP application to benchmark serializer libraries and compare its performance",
+    "keywords": ["serialize"],
+    "homepage": "https://github.com/tsantos84/serializer-benchmark",
+    "authors": [
+        {
+            "name": "Tales Santos",
+            "email": "tales.augusto.santos@gmail.com"
+        },
+        {
+            "name": "Eduard Sukharev",
+            "email": "sukharev.eh@gmail.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "TSantos\\Benchmark\\" : "src/"
         }
     },
     "require": {
+        "php": "^7.1",
         "jms/serializer": "^1.7",
-        "symfony/stopwatch": "^3.3",
-        "symfony/serializer": "^3.3",
-        "symfony/property-access": "^3.3",
-        "tsantos/serializer": "dev-master",
-        "doctrine/cache": "^1.6"
-    }
+        "symfony/serializer": "^4.0",
+        "tsantos/serializer": "@dev",
+        "beberlei/assert": "^2.8",
+        "zumba/json-serializer": "^2.1",
+        "phpbench/phpbench": "@dev",
+        "symfony/yaml": "^4.0",
+        "symfony/filesystem": "^4.0",
+        "symfony/property-access": "^4.0",
+        "doctrine/cache": "^1.7",
+        "nilportugues/serializer":"dev-master",
+        "blackfire/php-sdk": "^1.14",
+        "tebru/gson-php": "dev-master",
+        "better-serializer/better-serializer": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/tsantos84/php-serializer"
+        },
+        {
+            "type": "path",
+            "url": "../serializer"
+        }
+    ]
 }

@@ -1,0 +1,20 @@
+{
+    "bootstrap": "vendor/autoload.php",
+    "path": "src/Bench",
+    "time_unit": "milliseconds",
+    "progress": "dots",
+    "reports": {
+        "tsantos": {
+            "generator": "table",
+            "cols": [ "suite", "benchmark", "subject", "mean", "diff", "worst", "best", "mem_real" ],
+            "sort": {"mean": "asc"}
+        }
+    },
+    "extensions": [
+        "TSantos\\Benchmark\\TSantosExtension"
+    ],
+    "executors": {
+        "microtime": {"executor":"microtime"},
+        "blackfire": {"executor":"blackfire"}
+    }
+}

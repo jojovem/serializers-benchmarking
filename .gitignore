@@ -1,6 +1,5 @@
-# Created by .ignore support plugin (hsz.mobi)
-composer.phar
 /vendor/
 .idea
-/cache
-!/cache/.gitkeep
+docker-compose.yml
+composer.lock
+phpbench.json

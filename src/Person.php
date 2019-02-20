@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace TSantos\Benchmark;
 
@@ -17,19 +18,23 @@ class Person
     private $mother;
     /** @var  boolean */
     private $married;
+    /** @var string[] */
+    private $favoriteColors;
 
     /**
      * Person constructor.
      * @param int $id
      * @param string $name
      * @param bool $married
+     * @param string[] $favoriteColors
      * @param Person $mother
      */
-    public function __construct(int $id, string $name, bool $married, Person $mother = null)
+    public function __construct(?int $id = null, ?string $name = null, ?bool $married = false, ?array $favoriteColors = [], ?Person $mother = null)
     {
         $this->id = $id;
         $this->name = $name;
         $this->mother = $mother;
+        $this->favoriteColors = $favoriteColors;
         $this->married = $married;
     }
 
@@ -81,7 +86,7 @@ class Person
      * @param Person $mother
      * @return Person
      */
-    public function setMother(Person $mother): Person
+    public function setMother(?Person $mother): Person
     {
         $this->mother = $mother;
         return $this;
@@ -96,12 +101,38 @@ class Person
     }
 
     /**
+     * @return bool
+     */
+    public function getMarried(): bool
+    {
+        return $this->married;
+    }
+
+    /**
      * @param bool $married
      * @return Person
      */
     public function setMarried(bool $married): Person
     {
         $this->married = $married;
+        return $this;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getFavoriteColors(): array
+    {
+        return $this->favoriteColors;
+    }
+
+    /**
+     * @param string[] $favoriteColors
+     * @return Person
+     */
+    public function setFavoriteColors(array $favoriteColors): Person
+    {
+        $this->favoriteColors = $favoriteColors;
         return $this;
     }
 }
